@@ -1,26 +1,42 @@
-file_path = "09_short.input"
+file_path = "09.input"
 
 with open(file_path, "r") as f:
     input_string = f.read()
 
-# 1. Create empty list
-disk_map = []
-# 2. Parse alternatingly from beginning and end of input
+arr = [int(n) for n in input_string if n != "\n"]
 
-j = 0
+result = []
+values = []
 
-for i, e in enumerate(input_string):
+for i, x in enumerate(arr):
     if i % 2 == 0:
-        print(input_string[i])
-        for i in range(int(input_string[i])):
-            disk_map.append(int(input_string[i]))
-    else: 
-        end = -1 - j
-        print(input_string[end])
-        j += 1
+        values.append(i//2)
 
-# 3. From end concatenate digits and place them into the array
-# ie. 12343 = 0..111....222 = 0221112 = [0, 22, 1, 1, 1, 2]
-# 4. Use an iterator to calculate checksum, split numbers into digits if number > 9
+counter = 0
 
-print(disk_map)
+while arr and values:
+    a = arr.pop(0)
+
+    if counter % 2 != 0:
+        v_1 = -1
+    else:
+        v_1 = values.pop(0)
+
+    for i in range(a):
+        result.append(v_1)
+
+    counter += 1
+
+for i, r in enumerate(result):
+    if r < 0:
+        k = result.pop(-1)
+        if k < 0:
+            while k < 0:
+                k = result.pop(-1)
+        result[i] = k
+
+print(sum(i * x for i, x in enumerate(result)))
+
+
+
+
