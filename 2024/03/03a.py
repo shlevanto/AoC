@@ -12,8 +12,6 @@ def multiply(s):
     factors = re.findall(mul_pattern, s)
     return int(factors[0]) * int(factors[1])
 
-
-
 result = sum([multiply(factors) for factors in matches])
 
 print(result)
