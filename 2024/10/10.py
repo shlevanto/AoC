@@ -60,4 +60,4 @@ for y in range(arr.shape[0]):
             visited = np.zeros_like(arr, dtype=bool)
             trail((y,x), arr, 0, visited)
 
-print(counter)
+print("Puzzle 1, trail scores:", counter)
