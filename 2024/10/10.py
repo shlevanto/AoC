@@ -1,21 +1,63 @@
+import numpy as np
+
+global counter
+counter = 0
+
 # 1. read input 
 # 2. graph representation?
 # 3. look for trailheads 0
 # 4. iterate through input, do a bfs at each trailhead 
+file_path = "10.input"
+with open(file_path, "r") as f:
+    rows = f.readlines()
 
-"""Tirakirja: leveyshaku taulukossa
-procedure haku(y,x)
-    if y < 0 or x < 0 or y >= n or x >= n
-        return
-    if seina[y][x] or vierailtu[y][x]
-        return
-    vierailtu[y][x] = true
+# create an array of characters
+chars = [[int(x) for x in list(row.strip())] for row in rows]
+arr = np.stack(chars)
+
+
+def is_allowed(node, arr):
+    y, x = node
+
+    # top or bottom wall
+    if y == -1 or y >= arr.shape[0]:
+        return False
+    # side wall
+    if x == -1 or x >= arr.shape[1]:
+        return False
+
+    return True
+
+def is_adjacent(arr, node, next):
     
-    haku(y+1,x)
-    haku(y-1,x)
-    haku(y,x+1)
-    haku(y,x-1)
+    if is_allowed(next, arr):
+        return arr[next] == arr[node] + 1
+    return False
 
-    + voi siirtyä naapuriin vain jos arvo on solmu + 1
-    + laske montako reittiä on eli counter += 1 aina kun pääseen ysiin
-"""
+
+def trail(start, arr, value, visited):
+    if not is_allowed(start, arr) or visited[start]:
+        return
+    visited[start] = True
+    value = arr[start]
+
+    if value == 9:
+        global counter
+        counter += 1
+
+    y, x = start
+    neighbours = [(y+1, x), (y-1, x), (y, x+1), (y, x-1)]
+
+    for n in neighbours: 
+        if is_adjacent(arr, start, n):
+            trail(n, arr, value, visited) 
+
+
+
+for y in range(arr.shape[0]):
+    for x in range(arr.shape[1]):
+        if arr[y,x] == 0:
+            visited = np.zeros_like(arr, dtype=bool)
+            trail((y,x), arr, 0, visited)
+
+print(counter)
