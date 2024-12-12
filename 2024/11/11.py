@@ -6,6 +6,7 @@
 
 # Two options -> input into new list or use linked list
 
+#
 file_path = "11_short.input"
 
 with open(file_path, "r") as f:
@@ -13,17 +14,19 @@ with open(file_path, "r") as f:
 
 
 def blink(n, stones, blinked=[]):
-    #print("Incoming:", stones, len(stones))
-
+    
+    
     if n == 0:
         print(len(stones))
         return
 
-    for stone in stones:
+    for stone in stones:  
         if stone == 0:
             #print("rule 1")
             blinked.append(1)
         elif len(str(stone)) % 2 == 0:
+            continue
+        if len(str(stone)) % 2 == 0:
             cutoff = len(str(stone)) // 2
             a = int(str(stone)[:cutoff])
             b = int(str(stone)[cutoff:])
@@ -32,11 +35,11 @@ def blink(n, stones, blinked=[]):
 
             blinked.append(a)
             blinked.append(b)
+            continue
+
         else:
             blinked.append(2024 * stone)
-    
-    print("blinked:", blinked)
+
     blink(n-1, blinked, [])
 
-print(arr)
 blink(6, arr)
