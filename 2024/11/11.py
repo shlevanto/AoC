@@ -5,9 +5,9 @@
 # the old stone's number multiplied by 2024 is engraved on the new stone.
 
 # Two options -> input into new list or use linked list
-
+from copy import deepcopy
 #
-file_path = "11_short.input"
+file_path = "11.input"
 
 with open(file_path, "r") as f:
     arr = [int(s) for s in f.read().strip().split(" ")]
@@ -49,15 +49,14 @@ class Counter:
         if number in self.dic.keys():
             self.dic[number] = self.dic[number] - 1
             
-        if self.dic[number] < 0:
-            self.dic[number] = 0
+            if self.dic[number] < 0:
+                self.dic[number] = 0
 
     def get(self, number):
         if number in self.dic.keys():
             return self.dic.copy()[number]
         return 0
   
-
     def contains(self, number):
         return self.dic[number] > 0
     @property
@@ -85,14 +84,14 @@ class Counter:
                 self.dic[e] = self.dic[e] + 1
             else:
                 self.dic[e] = 1
-
+    
+    
 
 def memo_blink(n, a_counter):
-    print(n, "at start:", a_counter)
-    
+    print(n)
+    outgoing= deepcopy(a_counter)
+
     if n == 0:
-        #print(a_counter.values)
-        print(f"memoization: {a_counter}")
         print(sum(a_counter.values))
         return
 
@@ -100,89 +99,29 @@ def memo_blink(n, a_counter):
         count = a_counter.get(stone)
         
         for i in range(count):
-            print(f"i: {i}, count of stones {a_counter.get(stone)}")
             if a_counter.contains(stone):
                 if stone == 0:
-                    a_counter.add(1)
-                    print("stone 0 updated to 1")
+                    outgoing.add(1)
                 elif len(str(stone)) % 2 == 0:
                     cutoff = len(str(stone)) // 2
                     a = int(str(stone)[:cutoff])
                     b = int(str(stone)[cutoff:])
-                    a_counter.add(a)
-                    a_counter.add(b)
-                    print(f"split {stone} into {a} and {b}")
+                    outgoing.add(a)
+                    outgoing.add(b)
                 else:
-                    a_counter.add(2024 * stone)
-                    print(f"multiplied", stone)
-
-                a_counter.remove(stone)
-                print("removed", stone)
-                
-    memo_blink(n-1, a_counter)
-
-def dic_add(dic, key):
-    if key in dic:
-        dic[key] = dic[key] + 1
-    else: 
-        dic[key] = 1
-    return dic
-
-def dic_remove(dic, key):
-    if key in dic:
-        dic[key] = dic[key] - 1
-    if dic[key] < 0:
-        dic[key] = 0
-    return dic
-
-def memo_blink_dic(n, dic):
-    print(n, "at start:", dic)
+                    outgoing.add(2024 * stone)
     
-    if n == 0:
-        #print(a_counter.values)
-        print(f"memoization_DIC: {dic}")
-        print(sum(dic))
-        return
-    temp = list(dic.keys()).copy()
-    for stone in temp:
-        count = dic[stone]
-        
-        for i in range(count):
-            print(f"i: {i}, count of stones {dic[stone]}")
-            if stone in dic.keys():
-                if stone == 0:
-                    dic = dic_add(dic, 1)
-                    print("stone 0 updated to 1")
-                elif len(str(stone)) % 2 == 0:
-                    cutoff = len(str(stone)) // 2
-                    a = int(str(stone)[:cutoff])
-                    b = int(str(stone)[cutoff:])
-                    dic = dic_add(dic, a)
-                    dic = dic_add(dic, b)
-                    print(f"split {stone} into {a} and {b}")
-                else:
-                    dic = dic_add(dic, (2024 * stone))
-                    print(f"multiplied", stone)
+                outgoing.remove(stone)            
+    memo_blink(n-1, outgoing)
 
-                dic_remove(dic, stone)
-                print("removed", stone)
-                
-    memo_blink_dic(n-1, dic)
 
-n_blinks = 7
+n_blinks = 75
+
 print("puzzle 1:")
 #blink(n_blinks, arr)
 
-#print("****")
+print("****")
 
 counter = Counter(arr)
+memo_blink(n_blinks, counter)
 
-#memo_blink(n_blinks, counter)
-dic = {}
-for a in arr:
-    if a in dic:
-        dic[a] = dic[a] + 1
-    else:
-        dic[a] = 1
-print(dic)
-memo_blink_dic(n_blinks, dic)
