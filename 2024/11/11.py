@@ -14,8 +14,6 @@ with open(file_path, "r") as f:
 
 
 def blink(n, stones, blinked=[]):
-    
-    
     if n == 0:
         print(len(stones))
         return
@@ -38,8 +36,7 @@ def blink(n, stones, blinked=[]):
     blink(n-1, blinked, [])
 
 class Counter:
-    def __init__(self):
-        self.dic = {}
+    dic = dict
     
     def add(self, number):
         if number in self.dic.keys():
@@ -50,9 +47,18 @@ class Counter:
     def remove(self, number):
         if number in self.dic.keys():
             self.dic[number] = self.dic[number] - 1
-            if self.dic[number] < 0:
-                self.dic[number] = 0
-    
+            
+        if self.dic[number] < 0:
+            self.dic[number] = 0
+
+    def get(self, number):
+        if number in self.dic.keys():
+            return self.dic.copy()[number]
+        return 0
+  
+
+    def contains(self, number):
+        return self.dic[number] > 0
     @property
     def values(self):  
          return list(self.dic.values())
@@ -61,50 +67,76 @@ class Counter:
     def keys(self):  
          return list(self.dic.keys()) 
     
+    @property
     def non_zero(self):
-        return list([a for a in self.keys() if self.dic[a] > 0])
+        return list([a for a in self.keys if self.dic[a] > 0])
 
+    def to_dict(self):
+        return dict(self.dic)
+    
     def __str__(self):
         return str(self.dic)
+    
+    def __init__(self, arr):
+        self.dic = {}
+        for e in arr:
+            if e in self.dic.keys():
+                self.dic[e] = self.dic[e] + 1
+            else:
+                self.dic[e] = 1
 
 
 def memo_blink(n, a_counter):
-    #print(a_counter)
+    print(n, "at start:", a_counter.non_zero)
+    print("twos: ", a_counter.get(2))
+    
     if n == 0:
+        print(a_counter.values)
+        print(a_counter)
         print(sum(a_counter.values))
-  
         return
 
-
-    for stone in a_counter.keys:
-        if stone == 0:
-            a_counter.add(1)
-
-        if len(str(stone)) % 2 == 0 and len(str(stone)) > 1:
-            cutoff = len(str(stone)) // 2
-            a = int(str(stone)[:cutoff])
-            b = int(str(stone)[cutoff:])
-            a_counter.add(a)
-            a_counter.add(b)
-
-        else:
-            a_counter.add(2024 * stone)
-            
-        a_counter.remove(stone)
+    for stone in a_counter.non_zero:
+        count = a_counter.get(stone)
         
+        if count > 1:
+            count -= 1 
+        
+        for i in range(count):
+            print(f"i: {i}, count of stones {a_counter.get(stone)}")
+            if a_counter.contains(stone):
+                if stone == 0:
+                    a_counter.add(1)
+                    print("stone 0 updated to 1")
+                elif len(str(stone)) % 2 == 0:
+                    cutoff = len(str(stone)) // 2
+                    a = int(str(stone)[:cutoff])
+                    b = int(str(stone)[cutoff:])
+                    a_counter.add(a)
+                    a_counter.add(b)
+                    print(f"split {stone} into {a} and {b}")
+                else:
+                    a_counter.add(2024 * stone)
+                    print(f"multiplied", stone)
 
+                a_counter.remove(stone)
+                print("removed", stone)
+                
     memo_blink(n-1, a_counter)
+    
 
-
-print("puzzle 1:")
+#print("puzzle 1:")
 #blink(25, arr)
 
 print("****")
 
-counter = Counter()
+counter = Counter(arr)
 
-for s in arr:
-    counter.add(s)
+check = [2097446912, 14168, 4048, 2, 0, 2, 4, 40, 48, 2024, 40, 48, 80, 96, 2, 8,
+          6, 7, 6, 0, 3, 2]
 
-
+counter_2 = Counter(check)
 memo_blink(6, counter)
+
+for key in counter_2.keys:
+    print(f"Correct: {key}: {counter_2.get(key)} vs. incorrect: {counter.get(key)}")
