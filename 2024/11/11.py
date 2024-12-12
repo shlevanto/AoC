@@ -21,11 +21,15 @@ def blink(n, stones, blinked=[]):
 
     for stone in stones:
         if stone == 0:
+            #print("rule 1")
             blinked.append(1)
-        if len(str(stone)) % 2 == 0:
+        elif len(str(stone)) % 2 == 0:
             cutoff = len(str(stone)) // 2
             a = int(str(stone)[:cutoff])
             b = int(str(stone)[cutoff:])
+            
+            print("rule 2:", a, b)
+
             blinked.append(a)
             blinked.append(b)
         else:
@@ -34,4 +38,5 @@ def blink(n, stones, blinked=[]):
     print("blinked:", blinked)
     blink(n-1, blinked, [])
 
+print(arr)
 blink(6, arr)
