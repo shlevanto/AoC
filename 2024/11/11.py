@@ -89,30 +89,33 @@ class Counter:
 
 def memo_blink(n, a_counter):
     print(n)
-    outgoing= deepcopy(a_counter)
+    incoming = deepcopy(a_counter)
 
     if n == 0:
         print(sum(a_counter.values))
         return
 
-    for stone in a_counter.non_zero:
-        count = a_counter.get(stone)
-        
-        for i in range(count):
-            if a_counter.contains(stone):
-                if stone == 0:
-                    outgoing.add(1)
-                elif len(str(stone)) % 2 == 0:
-                    cutoff = len(str(stone)) // 2
-                    a = int(str(stone)[:cutoff])
-                    b = int(str(stone)[cutoff:])
-                    outgoing.add(a)
-                    outgoing.add(b)
-                else:
-                    outgoing.add(2024 * stone)
-    
-                outgoing.remove(stone)            
-    memo_blink(n-1, outgoing)
+    for stone in incoming.non_zero:
+        count = incoming.get(stone)
+
+        if incoming.get(stone) > 0:
+            if stone == 0:
+                for i in range(count):
+                    a_counter.add(1)
+                    a_counter.remove(stone)
+            elif len(str(stone)) % 2 == 0:
+                cutoff = len(str(stone)) // 2
+                a = int(str(stone)[:cutoff])
+                b = int(str(stone)[cutoff:])
+                for i in range(count):
+                    a_counter.add(a)
+                    a_counter.add(b)
+                    a_counter.remove(stone)
+            else:
+                for i in range(count):
+                    a_counter.add(2024 * stone)
+                    a_counter.remove(stone)            
+    memo_blink(n-1, a_counter)
 
 
 n_blinks = 75
