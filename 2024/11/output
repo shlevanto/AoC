@@ -1,14 +1,13 @@
-****
-6 at start: [125, 17]
-twos:  0
+puzzle 1:
+{125: 1, 17: 1}
+7 at start: {125: 1, 17: 1}
 i: 0, count of stones 1
 multiplied 125
 removed 125
 i: 0, count of stones 1
 split 17 into 1 and 7
 removed 17
-5 at start: [253000, 1, 7]
-twos:  0
+6 at start: {125: 0, 17: 0, 253000: 1, 1: 1, 7: 1}
 i: 0, count of stones 1
 split 253000 into 253 and 0
 removed 253000
@@ -18,8 +17,7 @@ removed 1
 i: 0, count of stones 1
 multiplied 7
 removed 7
-4 at start: [253, 0, 2024, 14168]
-twos:  0
+5 at start: {125: 0, 17: 0, 253000: 0, 1: 0, 7: 0, 253: 1, 0: 1, 2024: 1, 14168: 1}
 i: 0, count of stones 1
 multiplied 253
 removed 253
@@ -32,44 +30,63 @@ removed 2024
 i: 0, count of stones 1
 multiplied 14168
 removed 14168
-3 at start: [1, 512072, 20, 24, 28676032]
-twos:  0
+4 at start: {125: 0, 17: 0, 253000: 0, 1: 1, 7: 0, 253: 0, 0: 0, 2024: 0, 14168: 0, 512072: 1, 20: 1, 24: 1, 28676032: 1}
 i: 0, count of stones 1
 multiplied 1
 removed 1
 i: 0, count of stones 1
+split 2024 into 20 and 24
+removed 2024
+i: 0, count of stones 1
 split 512072 into 512 and 72
 removed 512072
-i: 0, count of stones 1
+i: 0, count of stones 2
 split 20 into 2 and 0
 removed 20
-i: 0, count of stones 1
+i: 1, count of stones 1
+split 20 into 2 and 0
+removed 20
+i: 0, count of stones 2
+split 24 into 2 and 4
+removed 24
+i: 1, count of stones 1
 split 24 into 2 and 4
 removed 24
 i: 0, count of stones 1
 split 28676032 into 2867 and 6032
 removed 28676032
-2 at start: [0, 2024, 512, 72, 2, 4, 2867, 6032]
-twos:  2
-i: 0, count of stones 1
+3 at start: {125: 0, 17: 0, 253000: 0, 1: 0, 7: 0, 253: 0, 0: 2, 2024: 0, 14168: 0, 512072: 0, 20: 0, 24: 0, 28676032: 0, 512: 1, 72: 1, 2: 4, 4: 2, 2867: 1, 6032: 1}
+i: 0, count of stones 2
 stone 0 updated to 1
 removed 0
-i: 0, count of stones 1
-split 2024 into 20 and 24
-removed 2024
+i: 1, count of stones 1
+stone 0 updated to 1
+removed 0
 i: 0, count of stones 1
 multiplied 512
 removed 512
 i: 0, count of stones 1
 split 72 into 7 and 2
 removed 72
-i: 0, count of stones 3
+i: 0, count of stones 5
 multiplied 2
 removed 2
-i: 1, count of stones 2
+i: 1, count of stones 4
 multiplied 2
 removed 2
-i: 0, count of stones 1
+i: 2, count of stones 3
+multiplied 2
+removed 2
+i: 3, count of stones 2
+multiplied 2
+removed 2
+i: 4, count of stones 1
+multiplied 2
+removed 2
+i: 0, count of stones 2
+multiplied 4
+removed 4
+i: 1, count of stones 1
 multiplied 4
 removed 4
 i: 0, count of stones 1
@@ -78,29 +95,185 @@ removed 2867
 i: 0, count of stones 1
 split 6032 into 60 and 32
 removed 6032
-1 at start: [1, 7, 20, 24, 2, 1036288, 4048, 8096, 28, 67, 60, 32]
-twos:  1
-i: 0, count of stones 1
+2 at start: {125: 0, 17: 0, 253000: 0, 1: 2, 7: 1, 253: 0, 0: 0, 2024: 0, 14168: 0, 512072: 0, 20: 0, 24: 0, 28676032: 0, 512: 0, 72: 0, 2: 0, 4: 0, 2867: 0, 6032: 0, 1036288: 1, 4048: 5, 8096: 2, 28: 1, 67: 1, 60: 1, 32: 1}
+i: 0, count of stones 2
+multiplied 1
+removed 1
+i: 1, count of stones 1
 multiplied 1
 removed 1
 i: 0, count of stones 1
 multiplied 7
 removed 7
+i: 0, count of stones 2
+split 2024 into 20 and 24
+removed 2024
+i: 1, count of stones 1
+split 2024 into 20 and 24
+removed 2024
 i: 0, count of stones 1
+multiplied 14168
+removed 14168
+i: 0, count of stones 2
 split 20 into 2 and 0
 removed 20
-i: 0, count of stones 1
+i: 1, count of stones 1
+split 20 into 2 and 0
+removed 20
+i: 0, count of stones 2
 split 24 into 2 and 4
 removed 24
-i: 0, count of stones 3
+i: 1, count of stones 1
+split 24 into 2 and 4
+removed 24
+i: 0, count of stones 1
+split 28676032 into 2867 and 6032
+removed 28676032
+i: 0, count of stones 4
 multiplied 2
 removed 2
-i: 1, count of stones 2
+i: 1, count of stones 3
 multiplied 2
 removed 2
+i: 2, count of stones 2
+multiplied 2
+removed 2
+i: 3, count of stones 1
+multiplied 2
+removed 2
+i: 0, count of stones 2
+multiplied 4
+removed 4
+i: 1, count of stones 1
+multiplied 4
+removed 4
+i: 0, count of stones 1
+split 2867 into 28 and 67
+removed 2867
+i: 0, count of stones 1
+split 6032 into 60 and 32
+removed 6032
 i: 0, count of stones 1
 multiplied 1036288
 removed 1036288
+i: 0, count of stones 9
+split 4048 into 40 and 48
+removed 4048
+i: 1, count of stones 8
+split 4048 into 40 and 48
+removed 4048
+i: 2, count of stones 7
+split 4048 into 40 and 48
+removed 4048
+i: 3, count of stones 6
+split 4048 into 40 and 48
+removed 4048
+i: 4, count of stones 5
+split 4048 into 40 and 48
+removed 4048
+i: 5, count of stones 4
+split 4048 into 40 and 48
+removed 4048
+i: 6, count of stones 3
+split 4048 into 40 and 48
+removed 4048
+i: 7, count of stones 2
+split 4048 into 40 and 48
+removed 4048
+i: 8, count of stones 1
+split 4048 into 40 and 48
+removed 4048
+i: 0, count of stones 4
+split 8096 into 80 and 96
+removed 8096
+i: 1, count of stones 3
+split 8096 into 80 and 96
+removed 8096
+i: 2, count of stones 2
+split 8096 into 80 and 96
+removed 8096
+i: 3, count of stones 1
+split 8096 into 80 and 96
+removed 8096
+i: 0, count of stones 2
+split 28 into 2 and 8
+removed 28
+i: 1, count of stones 1
+split 28 into 2 and 8
+removed 28
+i: 0, count of stones 2
+split 67 into 6 and 7
+removed 67
+i: 1, count of stones 1
+split 67 into 6 and 7
+removed 67
+i: 0, count of stones 2
+split 60 into 6 and 0
+removed 60
+i: 1, count of stones 1
+split 60 into 6 and 0
+removed 60
+i: 0, count of stones 2
+split 32 into 3 and 2
+removed 32
+i: 1, count of stones 1
+split 32 into 3 and 2
+removed 32
+1 at start: {125: 0, 17: 0, 253000: 0, 1: 0, 7: 2, 253: 0, 0: 4, 2024: 0, 14168: 0, 512072: 0, 20: 0, 24: 0, 28676032: 0, 512: 0, 72: 0, 2: 4, 4: 0, 2867: 0, 6032: 0, 1036288: 0, 4048: 0, 8096: 0, 28: 0, 67: 0, 60: 0, 32: 0, 2097446912: 1, 40: 9, 48: 9, 80: 4, 96: 4, 8: 2, 6: 4, 3: 2}
+i: 0, count of stones 2
+multiplied 7
+removed 7
+i: 1, count of stones 1
+multiplied 7
+removed 7
+i: 0, count of stones 4
+stone 0 updated to 1
+removed 0
+i: 1, count of stones 3
+stone 0 updated to 1
+removed 0
+i: 2, count of stones 2
+stone 0 updated to 1
+removed 0
+i: 3, count of stones 1
+stone 0 updated to 1
+removed 0
+i: 0, count of stones 2
+multiplied 14168
+removed 14168
+i: 1, count of stones 1
+multiplied 14168
+removed 14168
+i: 0, count of stones 2
+split 28676032 into 2867 and 6032
+removed 28676032
+i: 1, count of stones 1
+split 28676032 into 2867 and 6032
+removed 28676032
+i: 0, count of stones 4
+multiplied 2
+removed 2
+i: 1, count of stones 3
+multiplied 2
+removed 2
+i: 2, count of stones 2
+multiplied 2
+removed 2
+i: 3, count of stones 1
+multiplied 2
+removed 2
+i: 0, count of stones 2
+split 2867 into 28 and 67
+removed 2867
+i: 1, count of stones 1
+split 2867 into 28 and 67
+removed 2867
+i: 0, count of stones 2
+split 6032 into 60 and 32
+removed 6032
+i: 1, count of stones 1
+split 6032 into 60 and 32
+removed 6032
 i: 0, count of stones 4
 split 4048 into 40 and 48
 removed 4048
@@ -110,38 +283,249 @@ removed 4048
 i: 2, count of stones 2
 split 4048 into 40 and 48
 removed 4048
-i: 0, count of stones 1
-split 8096 into 80 and 96
-removed 8096
-i: 0, count of stones 1
+i: 3, count of stones 1
+split 4048 into 40 and 48
+removed 4048
+i: 0, count of stones 2
 split 28 into 2 and 8
 removed 28
-i: 0, count of stones 1
+i: 1, count of stones 1
+split 28 into 2 and 8
+removed 28
+i: 0, count of stones 2
 split 67 into 6 and 7
 removed 67
-i: 0, count of stones 1
+i: 1, count of stones 1
+split 67 into 6 and 7
+removed 67
+i: 0, count of stones 2
 split 60 into 6 and 0
 removed 60
-i: 0, count of stones 1
+i: 1, count of stones 1
+split 60 into 6 and 0
+removed 60
+i: 0, count of stones 2
 split 32 into 3 and 2
 removed 32
-0 at start: [7, 0, 2024, 14168, 2, 4, 4048, 2097446912, 40, 48, 80, 96, 8, 6, 3]
-twos:  3
-[0, 0, 0, 0, 1, 0, 2, 1, 1, 0, 0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 3, 3, 1, 1, 1, 2, 1]
-{125: 0, 17: 0, 253000: 0, 1: 0, 7: 1, 253: 0, 0: 2, 2024: 1, 14168: 1, 512072: 0, 20: 0, 24: 0, 28676032: 0, 512: 0, 72: 0, 2: 3, 4: 1, 2867: 0, 6032: 0, 1036288: 0, 4048: 1, 8096: 0, 28: 0, 67: 0, 60: 0, 32: 0, 2097446912: 1, 40: 3, 48: 3, 80: 1, 96: 1, 8: 1, 6: 2, 3: 1}
-23
-Correct: 2097446912: 1 vs. incorrect: 1
-Correct: 14168: 1 vs. incorrect: 1
-Correct: 4048: 1 vs. incorrect: 1
-Correct: 2: 4 vs. incorrect: 3
-Correct: 0: 2 vs. incorrect: 2
-Correct: 4: 1 vs. incorrect: 1
-Correct: 40: 2 vs. incorrect: 3
-Correct: 48: 2 vs. incorrect: 3
-Correct: 2024: 1 vs. incorrect: 1
-Correct: 80: 1 vs. incorrect: 1
-Correct: 96: 1 vs. incorrect: 1
-Correct: 8: 1 vs. incorrect: 1
-Correct: 6: 2 vs. incorrect: 2
-Correct: 7: 1 vs. incorrect: 1
-Correct: 3: 1 vs. incorrect: 1
+i: 1, count of stones 1
+split 32 into 3 and 2
+removed 32
+i: 0, count of stones 1
+split 2097446912 into 20974 and 46912
+removed 2097446912
+i: 0, count of stones 13
+split 40 into 4 and 0
+removed 40
+i: 1, count of stones 12
+split 40 into 4 and 0
+removed 40
+i: 2, count of stones 11
+split 40 into 4 and 0
+removed 40
+i: 3, count of stones 10
+split 40 into 4 and 0
+removed 40
+i: 4, count of stones 9
+split 40 into 4 and 0
+removed 40
+i: 5, count of stones 8
+split 40 into 4 and 0
+removed 40
+i: 6, count of stones 7
+split 40 into 4 and 0
+removed 40
+i: 7, count of stones 6
+split 40 into 4 and 0
+removed 40
+i: 8, count of stones 5
+split 40 into 4 and 0
+removed 40
+i: 9, count of stones 4
+split 40 into 4 and 0
+removed 40
+i: 10, count of stones 3
+split 40 into 4 and 0
+removed 40
+i: 11, count of stones 2
+split 40 into 4 and 0
+removed 40
+i: 12, count of stones 1
+split 40 into 4 and 0
+removed 40
+i: 0, count of stones 13
+split 48 into 4 and 8
+removed 48
+i: 1, count of stones 12
+split 48 into 4 and 8
+removed 48
+i: 2, count of stones 11
+split 48 into 4 and 8
+removed 48
+i: 3, count of stones 10
+split 48 into 4 and 8
+removed 48
+i: 4, count of stones 9
+split 48 into 4 and 8
+removed 48
+i: 5, count of stones 8
+split 48 into 4 and 8
+removed 48
+i: 6, count of stones 7
+split 48 into 4 and 8
+removed 48
+i: 7, count of stones 6
+split 48 into 4 and 8
+removed 48
+i: 8, count of stones 5
+split 48 into 4 and 8
+removed 48
+i: 9, count of stones 4
+split 48 into 4 and 8
+removed 48
+i: 10, count of stones 3
+split 48 into 4 and 8
+removed 48
+i: 11, count of stones 2
+split 48 into 4 and 8
+removed 48
+i: 12, count of stones 1
+split 48 into 4 and 8
+removed 48
+i: 0, count of stones 4
+split 80 into 8 and 0
+removed 80
+i: 1, count of stones 3
+split 80 into 8 and 0
+removed 80
+i: 2, count of stones 2
+split 80 into 8 and 0
+removed 80
+i: 3, count of stones 1
+split 80 into 8 and 0
+removed 80
+i: 0, count of stones 4
+split 96 into 9 and 6
+removed 96
+i: 1, count of stones 3
+split 96 into 9 and 6
+removed 96
+i: 2, count of stones 2
+split 96 into 9 and 6
+removed 96
+i: 3, count of stones 1
+split 96 into 9 and 6
+removed 96
+i: 0, count of stones 21
+multiplied 8
+removed 8
+i: 1, count of stones 20
+multiplied 8
+removed 8
+i: 2, count of stones 19
+multiplied 8
+removed 8
+i: 3, count of stones 18
+multiplied 8
+removed 8
+i: 4, count of stones 17
+multiplied 8
+removed 8
+i: 5, count of stones 16
+multiplied 8
+removed 8
+i: 6, count of stones 15
+multiplied 8
+removed 8
+i: 7, count of stones 14
+multiplied 8
+removed 8
+i: 8, count of stones 13
+multiplied 8
+removed 8
+i: 9, count of stones 12
+multiplied 8
+removed 8
+i: 10, count of stones 11
+multiplied 8
+removed 8
+i: 11, count of stones 10
+multiplied 8
+removed 8
+i: 12, count of stones 9
+multiplied 8
+removed 8
+i: 13, count of stones 8
+multiplied 8
+removed 8
+i: 14, count of stones 7
+multiplied 8
+removed 8
+i: 15, count of stones 6
+multiplied 8
+removed 8
+i: 16, count of stones 5
+multiplied 8
+removed 8
+i: 17, count of stones 4
+multiplied 8
+removed 8
+i: 18, count of stones 3
+multiplied 8
+removed 8
+i: 19, count of stones 2
+multiplied 8
+removed 8
+i: 20, count of stones 1
+multiplied 8
+removed 8
+i: 0, count of stones 12
+multiplied 6
+removed 6
+i: 1, count of stones 11
+multiplied 6
+removed 6
+i: 2, count of stones 10
+multiplied 6
+removed 6
+i: 3, count of stones 9
+multiplied 6
+removed 6
+i: 4, count of stones 8
+multiplied 6
+removed 6
+i: 5, count of stones 7
+multiplied 6
+removed 6
+i: 6, count of stones 6
+multiplied 6
+removed 6
+i: 7, count of stones 5
+multiplied 6
+removed 6
+i: 8, count of stones 4
+multiplied 6
+removed 6
+i: 9, count of stones 3
+multiplied 6
+removed 6
+i: 10, count of stones 2
+multiplied 6
+removed 6
+i: 11, count of stones 1
+multiplied 6
+removed 6
+i: 0, count of stones 4
+multiplied 3
+removed 3
+i: 1, count of stones 3
+multiplied 3
+removed 3
+i: 2, count of stones 2
+multiplied 3
+removed 3
+i: 3, count of stones 1
+multiplied 3
+removed 3
+0 at start: {125: 0, 17: 0, 253000: 0, 1: 4, 7: 2, 253: 0, 0: 19, 2024: 0, 14168: 0, 512072: 0, 20: 0, 24: 0, 28676032: 0, 512: 0, 72: 0, 2: 4, 4: 26, 2867: 0, 6032: 0, 1036288: 0, 4048: 0, 8096: 0, 28: 0, 67: 0, 60: 0, 32: 0, 2097446912: 0, 40: 0, 48: 0, 80: 0, 96: 0, 8: 0, 6: 0, 3: 0, 20974: 1, 46912: 1, 9: 4, 16192: 21, 12144: 12, 6072: 4}
+memoization_DIC: {125: 0, 17: 0, 253000: 0, 1: 4, 7: 2, 253: 0, 0: 19, 2024: 0, 14168: 0, 512072: 0, 20: 0, 24: 0, 28676032: 0, 512: 0, 72: 0, 2: 4, 4: 26, 2867: 0, 6032: 0, 1036288: 0, 4048: 0, 8096: 0, 28: 0, 67: 0, 60: 0, 32: 0, 2097446912: 0, 40: 0, 48: 0, 80: 0, 96: 0, 8: 0, 6: 0, 3: 0, 20974: 1, 46912: 1, 9: 4, 16192: 21, 12144: 12, 6072: 4}
+2128065347
