@@ -16,7 +16,7 @@ with open(file_path, "r") as f:
 def blink(n, stones, blinked=[]):
     if n == 0:
         print(len(stones))
-        print(f"brute: {Counter(stones)}")
+        #print(f"brute: {Counter(stones)}")
         return
 
     for stone in stones:  
@@ -36,9 +36,43 @@ def blink(n, stones, blinked=[]):
 
     blink(n-1, blinked, [])
 
+def blink_track(n, stones, blinked, tracker):
+    print(n)
+    if n == 0:
+        print(len(stones))
+        return
+
+    for stone in stones:  
+        if stone == 0:
+            blinked.append(1)
+            continue
+        
+        if len(str(stone)) % 2 == 0:
+            if stone not in tracker:
+                cutoff = len(str(stone)) // 2
+                a = int(str(stone)[:cutoff])
+                b = int(str(stone)[cutoff:])
+                tracker[stone] = (a,b)
+            else:
+                a,b = tracker[stone]
+            blinked.append(a)
+            blinked.append(b)    
+            continue
+        
+        else:
+            if stone not in tracker:
+                blinked_stone = 2024 * stone
+                tracker[stone] = blinked_stone
+            else:
+                blinked_stone = tracker[stone]
+            
+            blinked.append(blinked_stone)
+
+    blink_track(n-1, blinked, [], tracker)
+
 class Counter:
     dic = dict
-    
+
     def add(self, number):
         if number in self.dic.keys():
             self.dic[number] = self.dic[number] + 1
@@ -48,7 +82,7 @@ class Counter:
     def remove(self, number):
         if number in self.dic.keys():
             self.dic[number] = self.dic[number] - 1
-            
+
             if self.dic[number] < 0:
                 self.dic[number] = 0
 
@@ -56,27 +90,27 @@ class Counter:
         if number in self.dic.keys():
             return self.dic.copy()[number]
         return 0
-  
+
     def contains(self, number):
         return self.dic[number] > 0
     @property
     def values(self):  
-         return list(self.dic.values())
+        return list(self.dic.values())
 
     @property
     def keys(self):  
-         return list(self.dic.keys()) 
-    
+        return list(self.dic.keys()) 
+
     @property
     def non_zero(self):
         return list([a for a in self.keys if self.dic[a] > 0])
 
     def to_dict(self):
         return dict(self.dic)
-    
+
     def __str__(self):
         return str(self.dic)
-    
+
     def __init__(self, arr):
         self.dic = {}
         for e in arr:
@@ -84,8 +118,8 @@ class Counter:
                 self.dic[e] = self.dic[e] + 1
             else:
                 self.dic[e] = 1
-    
-    
+
+
 
 def memo_blink(n, a_counter):
     print(n)
@@ -118,13 +152,13 @@ def memo_blink(n, a_counter):
     memo_blink(n-1, a_counter)
 
 
-n_blinks = 75
-
 print("puzzle 1:")
-#blink(n_blinks, arr)
+blink(25, arr)
 
+print("puzzle 2:")
+blink_track(75, arr, [], {})
 print("****")
 
-counter = Counter(arr)
-memo_blink(n_blinks, counter)
+#counter = Counter(arr)
+#memo_blink(n_blinks, counter)
 

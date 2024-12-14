@@ -1,5 +1,8 @@
 from functools import reduce
 from operator import mul
+import sys
+import numpy as np
+np.set_printoptions(threshold=sys.maxsize)
 
 # dimensions y, x
 arr = (103,101)
@@ -51,13 +54,36 @@ def quadrant_counts(arr, end_positions):
     
     return (a, b, c, d)
 
+def draw_positions(positions, arr):
+    canvas = np.zeros()
+
 seconds = 100
+iterations = 5000
 
 end_positions = [move(robot, seconds, arr) for robot in robots]
 quadrants = quadrant_counts(arr, end_positions)
 
 print("Puzzle 1:", reduce(mul, quadrants))
 
+# looking for christmas trees...
+for i in range(iterations):
+    print("seconds:", i+1)
+    for robot in robots:
+        robot["p"] = move(robot, 1, arr)
+    
+    positions = [robot["p"] for robot in robots]
+    
+    canvas = np.zeros(arr, dtype=str)
 
+    for p in positions:
+        canvas[p[1], p[0]] = "*"
+
+    for row in range(arr[0]):
+        print(canvas[row,:].tolist())
+
+    print("*****\n\n\n")
+    
+
+    
 
 
