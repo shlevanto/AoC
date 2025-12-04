@@ -69,7 +69,7 @@ def solution_2(storage_map, cleared_map):
                 accessible += 1
                 cleared_map[r, c] = False
     if accessible == 0:
-        return sum(sum(cleared_map))
+        return np.sum(cleared_map)
 
     return solution_2(cleared_map, np.copy(cleared_map))
 
@@ -93,7 +93,8 @@ def main():
             storage_map[i, j] = item == "@"
 
     result_1 = solution_1(storage_map)
-    result_2 = sum(sum(storage_map)) - solution_2(storage_map, np.copy(storage_map))
+    # Solution 2 returns the amount of locations that can not be cleared.
+    result_2 = np.sum(storage_map) - solution_2(storage_map, np.copy(storage_map))
 
     print(f"Part one: {result_1}")
     print(f"Part two: {result_2}")
