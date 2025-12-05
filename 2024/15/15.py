@@ -46,28 +46,30 @@ def step(obj, direction):
 
 def move(obj, type, map, directions):  
     for d in directions:
-        print(d)
+        if type == "@":
+            print(d)
         next_location = step(obj, d)
        
         if is_wall(map, next_location):
             print(map, "\n****\n")
             if type == "O":
-                return False
-            continue
+                return True
+            else:
+                continue
+        
         if is_box(map, next_location):
-            if move(next_location, "O", map, [d]):
-                map[obj] = "."
-                obj = next_location
-                map[next_location] = type
-                if type == "O":
-                    return True
-        else:
+            wall = move(next_location, "O", map, [d])
+            if wall:
+                continue
             map[obj] = "."
             obj = next_location
             map[next_location] = type
-            if type == "O":
-                return True
-
+            
+            
+        map[obj] = "."
+        obj = next_location
+        map[next_location] = type
+        
         print(map, "\n****\n")
     
     return True
