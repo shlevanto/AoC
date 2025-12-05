@@ -34,7 +34,6 @@ def solution_1(id_ranges, product_list):
 
 
 def combine_ranges(sorted_ranges, finished):
-    # print(sorted_ranges)
     if finished:
         return sorted_ranges
 
@@ -48,7 +47,6 @@ def combine_ranges(sorted_ranges, finished):
         if i == len(sorted_ranges) - 1:
             new_range = sorted_ranges[i]
         elif sorted_ranges[i][1] >= sorted_ranges[i + 1][0]:
-            # print((sorted_ranges[i], sorted_ranges[i + 1]))
             new_range = (
                 sorted_ranges[i][0],
                 max(sorted_ranges[i][1], sorted_ranges[i + 1][1]),
@@ -82,7 +80,7 @@ def solution_2(id_ranges):
         sorted_ranges.append(new_range)
 
     final_ranges = combine_ranges(sorted_ranges, False)
-    # print(final_ranges)
+
     range_lengths = sum([b - a + 1 for (a, b) in final_ranges])
 
     return range_lengths
