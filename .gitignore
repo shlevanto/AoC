@@ -1,6 +1,7 @@
 *.txt
 *.ipynb
 *.input
+.zed
 output
 venv/
 __pycache__
